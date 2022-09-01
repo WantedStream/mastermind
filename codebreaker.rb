@@ -7,33 +7,41 @@ class CodeBreaker
     end
     
     def play
-        @board.print_board
-        puts "enter index to place (1-4)"
-        index=gets.chomp.to_i
-        if(index>4||index<1)
-            puts "invalid index!"
-            play()
-        end
 
+        loop do
+
+        @board.print_board
+
+        index=0
+        loop do 
+            puts "enter index to place (1-4)"
+            index=gets.chomp.to_i
+            break if (!(index>4||index<1))
+            puts "invalid index!"
+        end 
+
+        color="none"
+        loop do
         puts "enter color from one of the following:" 
         p @board.colors
-
         color=gets.chomp
-
-        unless(@board.colors.include?(color))
-            puts "invalid color! please put a color from the list"
-            play()
+        break if(@board.colors.include?(color))
+        puts "invalid color!"
         end
 
+       
 
-        @board.place_value(index,color)
-
-        if(!@board.row_full?)
-            play()
-           
-        end
-            puts "row end"
+        
+            @board.place_value(index,color)
             
+        
+
+
+            break if(@board.row_full?)
+       
+            
+
+        end    
         
 
         
