@@ -56,7 +56,7 @@ class CodeMaker
                 index=x
               
              
-            if(@type=="codemaker")    
+            if(@type=="player")    
             color="none"
             loop do
             puts "enter color from one of the following:" 
@@ -84,7 +84,7 @@ class CodeMaker
             
             
                 @board.set_hints(index,color)
-                if(@type=="codemaker")
+                if(@type=="player")
                 puts @board.hints
                 end
           

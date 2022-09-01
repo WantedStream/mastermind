@@ -10,11 +10,12 @@ class Game
         @turns = gets.chomp.to_i
         @board.make_board(@turns)
         
-        puts "enter type (codebreaker/codemaker)"
-        type = gets.chomp
-        
-        @codebreaker = CodeBreaker.new(@board,type)
-        @codemaker = CodeMaker.new(@board,type)
+        puts "enter type for codebreaker (player/computer)"
+        typeB = gets.chomp
+        puts "enter type for codemaker (player/computer)"
+        typeM = gets.chomp
+        @codebreaker = CodeBreaker.new(@board,typeB)
+        @codemaker = CodeMaker.new(@board,typeM)
         for x in 1..@turns
             
             @codebreaker.play
