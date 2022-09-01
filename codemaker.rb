@@ -75,7 +75,8 @@ class CodeMaker
                 else
                     color="none"
                 end   
-                color=@board.hint_colors[(@board.hint_colors.size*rand).floor]
+                
+                #color=@board.hint_colors[(@board.hint_colors.size*rand).floor]
 
             end
             
