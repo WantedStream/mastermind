@@ -18,7 +18,7 @@ class Game
         @codemaker = CodeMaker.new(@board,typeM)
         for x in 1..@turns
             
-            @codebreaker.play
+            @codebreaker.play(x)
             @board.made_turn
             
             if(@codemaker.code==@board.gameArr[x-1])

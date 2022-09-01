@@ -6,7 +6,7 @@ class CodeBreaker
         @type=player_or_computer
     end
     
-    def play
+    def play(row)
         index=0
         loop do
 
@@ -35,7 +35,41 @@ class CodeBreaker
 
         else
             index+=1
-            color=@board.colors[(@board.colors.size*rand).floor]
+            if(row==1)
+                color=@board.colors[(@board.colors.size*rand).floor]
+            else
+                currentrow=@board.gameArr[row-1]
+                lastrow=@board.gameArr[row-2]
+                
+
+                 
+                currentIndex=index-1
+                    loop do 
+
+                        color=@board.colors[(@board.colors.size*rand).floor]
+                        if(@board.hints[currentIndex]=="red")
+                            if(lastrow[currentIndex]==color)
+                                break
+                            end
+                            
+                        elsif(@board.hints[currentIndex]=="white")
+                            if(lastrow.drop(currentIndex).include?(color))
+                                break
+                            end
+                            
+                        else
+                            color=@board.colors[(@board.colors.size*rand).floor]
+                            break
+                        end
+                        
+                    end
+                    
+                       
+                    
+                          
+               
+            end
+            
             
         end
 

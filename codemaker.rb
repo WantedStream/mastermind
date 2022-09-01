@@ -21,7 +21,7 @@ class CodeMaker
      for x in 1..4
         
         
-        if(@type=="codemaker")
+        if(@type=="player")
             
         loop do
         puts "enter color from one of the following:" 
